@@ -1,3 +1,3 @@
-import { teste } from "./test";
+import { testeConstraint } from "./constraintFactory";
 
-teste();
+testeConstraint();

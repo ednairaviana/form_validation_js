@@ -46,6 +46,7 @@ function createCountryConstraint(
     zipPattern,
     zipPlaceholder
   );
-  newCountry.phoneValidation = phone;
   listCountries.push(newCountry);
 }
+
+export { createCountryConstraint, listCountries };
