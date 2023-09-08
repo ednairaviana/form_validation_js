@@ -1,28 +1,6 @@
 import { createCountryConstraint, listCountries } from "./countryObject";
 
-// USA
-createCountryConstraint(
-  "United States",
-  "usa",
-  "14",
-  /^(1\s?\(\d{3}\)\s?|1\s\d{3}[\s-]?|\(\d{3}\)\s?|\d{3}[\s-]?)\d{3}[\s-]?\d{4}$/,
-  "(123) 123-1234",
-  "10",
-  /^\d{5}(?:[-\s]\d{4})?$/,
-  "12345-1234",
-  (value, input) => {
-    if (value.length > 3) {
-      input.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}`;
-    }
-    if (value.length > 6) {
-      input.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(
-        6,
-        10
-      )}`;
-    }
-  },
-  "zip validation"
-);
+
 
 // BRZ
 createCountryConstraint(
@@ -45,13 +23,45 @@ createCountryConstraint(
       )}`;
     }
   },
-  "zip validation"
+  (value, input) => {
+    if (value.length > 5) {
+      input.value = `${value.slice(0, 5)}-${value.slice(5, 8)}`;
+    }
+  }
+);
+
+// USA
+createCountryConstraint(
+  "United States",
+  "usa",
+  "14",
+  /^(1\s?\(\d{3}\)\s?|1\s\d{3}[\s-]?|\(\d{3}\)\s?|\d{3}[\s-]?)\d{3}[\s-]?\d{4}$/,
+  "(123) 123-1234",
+  "11",
+  /^\d{5}(?:[-\s]\d{4})?$/,
+  "12345-1234",
+  (value, input) => {
+    if (value.length > 3) {
+      input.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}`;
+    }
+    if (value.length > 6) {
+      input.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(
+        6,
+        10
+      )}`;
+    }
+  },
+  (value, input) => {
+    if (value.length > 5) {
+      input.value = `${value.slice(0, 5)}-${value.slice(5, 9)}`;
+    }
+  }
 );
 
 function testeConstraint() {
   listCountries.forEach((el) => {
-    console.log(el)
+    console.log(el);
   });
 }
 
-export {testeConstraint}
+export { testeConstraint };

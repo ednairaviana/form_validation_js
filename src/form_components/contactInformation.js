@@ -9,40 +9,66 @@ const zipInput = document.querySelector("#zip_code");
 function setContactInformations() {
   insertOption();
   countrySelectOnInput();
+  setPhoneConstraint();
+  setZipConstraint();
 }
 
 // COMPONENTS FUNCTIONS
 
+let country;
 function countrySelectOnInput() {
   countrySelect.addEventListener("input", () => {
+    phoneInput.value = "";
+    zipInput.value = "";
+
     listCountries.forEach((element) => {
-      let country = element;
-      if (countrySelect.value === country.value) {
-        phoneInput.value = "";
-        setPhoneConstraint(country);
+      if (countrySelect.value !== element.value) {
+        return;
+      } else {
+        country = element;
       }
     });
+    zipInput.placeholder = country.zipPlaceholder;
+    phoneInput.placeholder = country.phonePlaceholder;
+  });
+}
+
+function setZipConstraint() {
+  zipInput.addEventListener("keydown", (k) => {
+    const input = k;
+    const keycode = k.keyCode;
+    onlyNumbersKeydown(keycode, input);
   });
 
-  function setPhoneConstraint(country) {
-    phoneInput.placeholder = country.phonePlaceholder;
-    phoneInput.addEventListener("keydown", (k) => {
-      const input = k;
-      const keycode = k.keyCode;
-      onlyNumbersKeydown(keycode, input);
-    });
+  zipInput.addEventListener("input", () => {
+    const zipValue = initInput(zipInput);
+    country.zipValidation(zipValue, zipInput);
 
-    phoneInput.addEventListener("input", () => {
-      const phoneValue = initInput(phoneInput);
-      country.phoneValidation(phoneValue, phoneInput);
+    validateRegex(country.zipPattern, zipInput);
+  });
+}
 
-      const phoneRegex = new RegExp(country.phonePattern);
-      if (!phoneRegex.test(phoneInput.value)) {
-        phoneInput.setCustomValidity("Invalid");
-      } else {
-        phoneInput.setCustomValidity("");
-      }
-    });
+function setPhoneConstraint() {
+  phoneInput.addEventListener("keydown", (k) => {
+    const input = k;
+    const keycode = k.keyCode;
+    onlyNumbersKeydown(keycode, input);
+  });
+
+  phoneInput.addEventListener("input", () => {
+    const phoneValue = initInput(phoneInput);
+    country.phoneValidation(phoneValue, phoneInput);
+
+    validateRegex(country.phonePattern, phoneInput);
+  });
+}
+
+function validateRegex(pattern, input) {
+  const regex = new RegExp(pattern);
+  if (!regex.test(input.value)) {
+    input.setCustomValidity("Invalid");
+  } else {
+    input.setCustomValidity("");
   }
 }
 
