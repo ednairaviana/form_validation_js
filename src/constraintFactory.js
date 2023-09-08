@@ -10,7 +10,17 @@ createCountryConstraint(
   "10",
   /^\d{5}(?:[-\s]\d{4})?$/,
   "12345-1234",
-  "phone validation",
+  (value, input) => {
+    if (value.length > 3) {
+      input.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}`;
+    }
+    if (value.length > 6) {
+      input.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(
+        6,
+        10
+      )}`;
+    }
+  },
   "zip validation"
 );
 
@@ -24,7 +34,17 @@ createCountryConstraint(
   "9",
   /^\d{5}-?\d{3}$/,
   "12345-123",
-  "phone validation",
+  (value, input) => {
+    if (value.length > 2) {
+      input.value = `(${value.slice(0, 2)}) ${value.slice(2, 6)}`;
+    }
+    if (value.length > 6) {
+      input.value = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(
+        6,
+        10
+      )}`;
+    }
+  },
   "zip validation"
 );
 
