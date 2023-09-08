@@ -34,7 +34,9 @@ function createCountryConstraint(
   phonePlaceholder,
   zipLength,
   zipPattern,
-  zipPlaceholder
+  zipPlaceholder,
+	phone,
+	zip
 ) {
   const newCountry = new CountryConstraints(
     name,
@@ -44,8 +46,11 @@ function createCountryConstraint(
     phonePlaceholder,
     zipLength,
     zipPattern,
-    zipPlaceholder
+    zipPlaceholder,
   );
+  newCountry.phoneValidation = phone;
+  newCountry.zipValidation = zip;
+
   listCountries.push(newCountry);
 }
 

@@ -9,7 +9,9 @@ createCountryConstraint(
   "(123) 123-1234",
   "10",
   /^\d{5}(?:[-\s]\d{4})?$/,
-  "12345-1234"
+  "12345-1234",
+  "phone validation",
+  "zip validation"
 );
 
 // BRZ
@@ -21,7 +23,9 @@ createCountryConstraint(
   "(12) 1234-1234",
   "9",
   /^\d{5}-?\d{3}$/,
-  "12345-123"
+  "12345-123",
+  "phone validation",
+  "zip validation"
 );
 
 function testeConstraint() {
