@@ -7,7 +7,7 @@ const zipInput = document.querySelector("#zip_code");
 
 // MAIN FUNCTION
 function setContactInformations() {
-  insertOption();
+  initContactInformations();
   countrySelectOnInput();
   setPhoneConstraint();
   setZipConstraint();
@@ -61,6 +61,17 @@ function setPhoneConstraint() {
 
     validateRegex(country.phonePattern, phoneInput);
   });
+}
+
+function initContactInformations() {
+    countrySelect.value = "";
+    phoneInput.value = "";
+    zipInput.value = "";
+
+    phoneInput.placeholder = "Select a country!";
+    zipInput.placeholder = "Select a country!";
+
+    insertOption();
 }
 
 function validateRegex(pattern, input) {
