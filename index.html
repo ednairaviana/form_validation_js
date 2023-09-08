@@ -3,21 +3,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="./css/reset.css" />
   </head>
   <body>
     <form action="">
       <fieldset>
         <legend>Personal Informations</legend>
         <label for="f_name">First Name</label>
-        <input type="text" name="f_name" id="f_name" autocomplete="off" />
+        <input
+          type="text"
+          name="f_name"
+          id="f_name"
+          required
+          autocomplete="off"
+        />
         <br /><br />
 
         <label for="l_name">Last Name</label>
-        <input type="text" name="l_name" id="l_name" autocomplete="off" />
+        <input
+          type="text"
+          name="l_name"
+          id="l_name"
+          required
+          autocomplete="off"
+        />
         <br /><br />
 
         <label for="age">Age</label>
-        <input type="number" name="age" id="age" autocomplete="off" />
+        <input type="number" name="age" id="age" required autocomplete="off" />
         <br /><br />
       </fieldset>
 
@@ -26,17 +41,23 @@
       <fieldset>
         <legend>Contact Informations</legend>
         <label for="country">Country</label>
-        <select name="country" id="country">
-          <option value="">Select a country</option>
+        <select name="country" id="country" required>
+          <option disabled value="">Select a country</option>
         </select>
         <br /><br />
 
         <label for="phone">Phone</label>
-        <input type="tel" name="phone" id="phone" autocomplete="off" />
+        <input type="tel" name="phone" id="phone" required autocomplete="off" />
         <br /><br />
 
         <label for="zip_code">Zip Code</label>
-        <input type="text" name="zip_code" id="zip_code" autocomplete="off" />
+        <input
+          type="text"
+          name="zip_code"
+          id="zip_code"
+          required
+          autocomplete="off"
+        />
         <br /><br />
       </fieldset>
 
@@ -45,7 +66,13 @@
       <fieldset>
         <legend>Creating an account</legend>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" autocomplete="off" />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          autocomplete="off"
+        />
         <br /><br />
 
         <label for="password">Password</label>
@@ -53,6 +80,7 @@
           type="password"
           name="password"
           id="password"
+          required
           autocomplete="off"
         />
         <br /><br />
@@ -62,6 +90,7 @@
           type="password"
           name="confirm_pw"
           id="confirm_pw"
+          required
           autocomplete="off"
         />
         <br /><br />
