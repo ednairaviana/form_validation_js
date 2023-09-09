@@ -10,6 +10,7 @@ let isOpen = false;
 function createCustomSelect() {
   insertOption();
   dropBtnOnClick();
+  documentOnClick();
 }
 
 // COMPONENTS FUNCTIONS
@@ -72,6 +73,24 @@ function clickDropdown() {
     dropContent.style.display = "none";
     isOpen = false;
   }
+}
+
+function documentOnClick() {
+  document.addEventListener("click", (e) => {
+    const targetClass = e.target.className;
+    const classNameList = [
+      "drop-btn _active",
+      "drop-btn",
+      "drop-option _selected",
+      "drop-content",
+    ];
+
+    if (!classNameList.includes(targetClass) && isOpen === true) {
+      dropBtn.classList.remove("_active");
+      dropContent.style.display = "none";
+      isOpen = false;
+    }
+  });
 }
 
 export { createCustomSelect, dropContent };
