@@ -1,5 +1,8 @@
 import { listCountries } from "../countryObject";
-import { createCustomSelect } from "../dom_components/customSelect";
+import {
+  createCustomSelect,
+  dropContent,
+} from "../dom_components/customSelect";
 
 // DOM CONSTS
 const countrySelect = document.querySelector("#country");
@@ -10,29 +13,34 @@ const zipInput = document.querySelector("#zip_code");
 function setContactInformations() {
   initContactInformations();
   createCustomSelect();
-  countrySelectOnInput();
+  selectCountry();
   setPhoneConstraint();
   setZipConstraint();
 }
 
 // SECOND FUNCTIONS
-
 let country;
-function countrySelectOnInput() {
-  countrySelect.addEventListener("input", () => {
-    ableInputs();
-    phoneInput.value = "";
-    zipInput.value = "";
 
-    listCountries.forEach((element) => {
-      if (countrySelect.value !== element.value) {
-        return;
-      } else {
-        country = element;
-      }
+function selectCountry() {
+  const optionNodes = dropContent.childNodes;
+
+  optionNodes.forEach((option) => {
+    option.addEventListener("click", () => {
+      const optionValue = option.dataset.value;
+      ableInputs();
+
+      listCountries.forEach((element) => {
+        if (optionValue !== element.value) {
+          return;
+        } else {
+          country = element;
+        }
+      });
+
+      countrySelect.value = optionValue;
+      zipInput.placeholder = country.zipPlaceholder;
+      phoneInput.placeholder = country.phonePlaceholder;
     });
-    zipInput.placeholder = country.zipPlaceholder;
-    phoneInput.placeholder = country.phonePlaceholder;
   });
 }
 
@@ -66,28 +74,31 @@ function setPhoneConstraint() {
   });
 }
 
-function initContactInformations() {
-    countrySelect.value = "";
-    phoneInput.value = "";
-    zipInput.value = "";
-
-    phoneInput.placeholder = "Select a country!";
-    zipInput.placeholder = "Select a country!";
-
-    disableInputs();
-    insertOption();
-}
-
 // COMPONENT FUNCTIONS
 
+function initContactInformations() {
+  countrySelect.value = "";
+  phoneInput.value = "";
+  zipInput.value = "";
+
+  phoneInput.placeholder = "Select a country!";
+  zipInput.placeholder = "Select a country!";
+
+  disableInputs();
+  insertOption();
+}
+
+
 function disableInputs() {
-    phoneInput.disabled = true;
-    zipInput.disabled = true;
+  phoneInput.disabled = true;
+  zipInput.disabled = true;
 }
 
 function ableInputs() {
-    phoneInput.disabled = false;
-    zipInput.disabled = false;
+  phoneInput.disabled = false;
+  zipInput.disabled = false;
+  phoneInput.value = "";
+  zipInput.value = "";
 }
 
 function validateRegex(pattern, input) {
@@ -100,7 +111,7 @@ function validateRegex(pattern, input) {
   }
 }
 
-// 
+//
 
 function insertOption() {
   listCountries.forEach((country) => {
@@ -119,7 +130,7 @@ function initInput(input) {
 
 function onlyNumbersKeydown(keycode, input) {
   let digits = [8, 3, 39, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-  
+
   if (!digits.includes(keycode) || input.shiftKey) {
     input.preventDefault();
   }

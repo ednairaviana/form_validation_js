@@ -37,11 +37,28 @@ function createOption(text, value) {
   dropContent.insertAdjacentElement("beforeend", dropOption);
 
   function optionOnClick() {
+    defaultDisabled();
     dropOption.addEventListener("click", () => {
+      clearSelected();
+
       dropBtn.innerText = dropOption.innerText;
-      console.log(dropOption.dataset.value)
+      dropOption.classList.add("_selected");
+
       clickDropdown();
     });
+  }
+
+  function clearSelected() {
+    dropContent.childNodes.forEach((child) => {
+      child.classList.remove("_selected");
+    });
+  }
+
+  function defaultDisabled() {
+    if (dropOption.dataset.value === "") {
+      dropOption.style.pointerEvents = "none";
+      dropOption.style.color = "gray";
+    }
   }
 }
 
@@ -57,4 +74,4 @@ function clickDropdown() {
   }
 }
 
-export { createCustomSelect };
+export { createCustomSelect, dropContent };

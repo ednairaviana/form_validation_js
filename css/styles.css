@@ -207,4 +207,5 @@ select {
 
 .drop-option._selected {
   background-color: var(--main-color-op);
+  pointer-events: none;
 }
