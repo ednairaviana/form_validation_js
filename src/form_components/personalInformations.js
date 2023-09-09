@@ -1,4 +1,8 @@
-import { insertPopUp, removePopUp } from "../dom_components/createPopup";
+import {
+  insertPopUp,
+  removePopUp,
+  okMessage,
+} from "../dom_components/createPopup";
 
 const fsNameInput = document.querySelector("#f_name");
 const lsNameInput = document.querySelector("#l_name");
@@ -16,10 +20,16 @@ function checkName(input) {
 
     if (valueArray.includes(" ")) {
       console.log("a");
-      insertPopUp(input, "biruleibe", false);
+      insertPopUp(input, "No spaces", false);
+      input.setCustomValidity("Invalid");
+    } else if (valueArray.length < 2) {
+      insertPopUp(input, "Min 2 characteres", false);
+      input.setCustomValidity("Invalid");
+    } else if (input.validity.patternMismatch) {
+      insertPopUp(input, "Invalid characteres", false);
       input.setCustomValidity("Invalid");
     } else {
-      removePopUp(input);
+      okMessage(input);
       input.setCustomValidity("");
     }
   });
@@ -31,11 +41,18 @@ function checkBirth() {
     const diff = new Date().getTime() - birthday.getTime();
     const year = Math.floor(diff / 31556952000);
 
-    if (year < 15 || year > 100 || year < 0) {
+    if (year < 0) {
       birthInput.setCustomValidity("Invalid!");
-      return;
+      insertPopUp(birthInput, "Did you come from the future?", false);
+    } else if (year > 100) {
+      birthInput.setCustomValidity("Invalid!");
+      insertPopUp(birthInput, "You are not that old!", false);
+    } else if (year < 15) {
+      birthInput.setCustomValidity("Invalid!");
+      insertPopUp(birthInput, "Min age is 15 years!", false);
     } else {
       birthInput.setCustomValidity("");
+      okMessage(birthInput);
     }
   });
 }
