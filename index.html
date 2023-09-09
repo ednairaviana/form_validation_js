@@ -21,38 +21,49 @@
       <form action="">
         <fieldset class="main-section">
           <legend>Personal Informations</legend>
-          <label for="f_name">First Name</label>
-          <input
-            type="text"
-            name="f_name"
-            id="f_name"
-            minlength="2"
-            maxlength="20"
-            pattern="[a-zA-Z]+"
-            required
-            autocomplete="off"
-          />
 
-          <label for="l_name">Last Name</label>
-          <input
-            type="text"
-            name="l_name"
-            id="l_name"
-            minlength="2"
-            maxlength="20"
-            pattern="[a-zA-Z]+"
-            required
-            autocomplete="off"
-          />
+          <div class="form-container">
+            <div class="wrapper-field">
+              <label for="f_name">First Name</label>
+              <input
+                type="text"
+                name="f_name"
+                id="f_name"
+                minlength="2"
+                maxlength="20"
+                pattern="[a-zA-Z]+"
+                required
+                autocomplete="off"
+              />
+            </div>
 
-          <label for="birth">Birthday</label>
-          <input
-            type="date"
-            name="birth"
-            id="birth"
-            required
-            autocomplete="off"
-          />
+            <div class="wrapper-field">
+              <label for="l_name">Last Name</label>
+              <input
+                type="text"
+                name="l_name"
+                id="l_name"
+                minlength="2"
+                maxlength="20"
+                pattern="[a-zA-Z]+"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="wrapper-field">
+              <label for="birth">Birthday</label>
+              <input
+                type="date"
+                name="birth"
+                id="birth"
+                required
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button type="button">Next Step</button>
         </fieldset>
 
         <fieldset style="display: none">
