@@ -1,4 +1,5 @@
 import { listCountries } from "../countryObject";
+import { createCustomSelect } from "../dom_components/customSelect";
 
 // DOM CONSTS
 const countrySelect = document.querySelector("#country");
@@ -8,6 +9,7 @@ const zipInput = document.querySelector("#zip_code");
 // MAIN FUNCTION
 function setContactInformations() {
   initContactInformations();
+  createCustomSelect();
   countrySelectOnInput();
   setPhoneConstraint();
   setZipConstraint();
