@@ -76,7 +76,9 @@ label {
   margin-left: 5px;
 }
 
-input {
+input,
+.drop-btn {
+  box-sizing: border-box;
   border: 2px solid var(--main-color);
   border-bottom-width: 3px;
   font-size: inherit;
@@ -151,4 +153,56 @@ button:active {
 
 select {
   display: none;
+}
+
+.custom-select {
+  position: relative;
+}
+
+.drop-btn {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.drop-btn._active {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.drop-btn:hover {
+  background-color: var(--main-color);
+}
+
+.drop-content {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% - 3px);
+
+  width: 100%;
+  border: 2px solid var(--main-color);
+  background-color: var(--bcg-color);
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.drop-option {
+  border-bottom: 2px solid var(--main-color);
+  padding: 5px;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.drop-option:hover {
+  box-shadow: 0 0 10px var(--main-color) inset;
+}
+
+.drop-option:active,
+.drop-btn:active {
+  opacity: 0.2;
+}
+
+.drop-option._selected {
+  background-color: var(--main-color-op);
 }
