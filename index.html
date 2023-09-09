@@ -19,7 +19,7 @@
   <body>
     <main class="main-container">
       <form action="">
-        <fieldset class="main-section">
+        <fieldset id="step-1" class="main-section" style="display: none">
           <legend>Personal Informations</legend>
 
           <div class="form-container">
@@ -63,36 +63,48 @@
             </div>
           </div>
 
-          <button type="button">Next Step</button>
+          <button id="btn-1" type="button">Next Step</button>
         </fieldset>
 
-        <fieldset style="display: none">
+        <fieldset id="step-2" class="main-section">
           <legend>Contact Informations</legend>
-          <label for="country">Country</label>
-          <select name="country" id="country" required>
-            <option disabled value="">Select a country</option>
-          </select>
 
-          <label for="phone">Phone</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            required
-            autocomplete="off"
-          />
+          <div class="form-container">
+            <div class="wrapper-field">
+              <label for="country">Country</label>
+              <select name="country" id="country" required>
+                <option disabled value="">Select a country</option>
+              </select>
+              <div class="custom-select"></div>
+            </div>
 
-          <label for="zip_code">Zip Code</label>
-          <input
-            type="text"
-            name="zip_code"
-            id="zip_code"
-            required
-            autocomplete="off"
-          />
+            <div class="wrapper-field">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="wrapper-field">
+              <label for="zip_code">Zip Code</label>
+              <input
+                type="text"
+                name="zip_code"
+                id="zip_code"
+                required
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <button id="btn-2" type="button">Next Step</button>
         </fieldset>
 
-        <fieldset style="display: none">
+        <fieldset id="step-3" style="display: none">
           <legend>Creating an account</legend>
           <label for="email">Email</label>
           <input

@@ -148,3 +148,7 @@ button:active {
 .popup-ok {
   border-style: solid;
 }
+
+select {
+  display: none;
+}
