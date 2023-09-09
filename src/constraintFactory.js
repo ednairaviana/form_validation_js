@@ -1,7 +1,6 @@
 import { createCountryConstraint, listCountries } from "./countryObject";
 
 
-
 // BRZ
 createCountryConstraint(
   "Brazil",
@@ -58,10 +57,8 @@ createCountryConstraint(
   }
 );
 
-function testeConstraint() {
-  listCountries.forEach((el) => {
-    console.log(el);
-  });
+function exportListCountry() {
+    return listCountries
 }
 
-export { testeConstraint };
+export { exportListCountry };

@@ -1,5 +1,5 @@
-import { testeConstraint } from "./constraintFactory";
 import { setContactInformations } from "./form_components/contactInformation";
+import { exportListCountry } from "./constraintFactory";
 
-testeConstraint();
+exportListCountry();
 setContactInformations();
