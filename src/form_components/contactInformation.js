@@ -3,6 +3,7 @@ import {
   createCustomSelect,
   dropContent,
 } from "../dom_components/customSelect";
+import { insertPopUp, okMessage } from "../dom_components/createPopup";
 
 // DOM CONSTS
 const countrySelect = document.querySelector("#country");
@@ -104,10 +105,12 @@ function ableInputs() {
 function validateRegex(pattern, input) {
   const regex = new RegExp(pattern);
   if (!regex.test(input.value)) {
-    input.setCustomValidity("Invalid");
+    input.setCustomValidity("Invalid!");
+    insertPopUp(input, "Invalid format!", false);
     return;
   } else {
     input.setCustomValidity("");
+    okMessage(input);
   }
 }
 
