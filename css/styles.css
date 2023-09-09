@@ -1,0 +1,31 @@
+:root {
+  --bcg-color: #151515;
+  --main-color: #cb80a5;
+  --scd-color: #2b1d66;
+
+  --main-color-op: #cb80a599;
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+body {
+  background: var(--main-color);
+  background: linear-gradient(var(--main-color), var(--scd-color));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  background-color: var(--bcg-color);
+  width: 50vw;
+  height: 70vh;
+
+  border-radius: 50px;
+  box-shadow: 0 0 15px var(--scd-color);
+}

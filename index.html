@@ -4,101 +4,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
 
+    <!-- LINK FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- LINK CSS -->
     <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <form action="">
-      <fieldset>
-        <legend>Personal Informations</legend>
-        <label for="f_name">First Name</label>
-        <input
-          type="text"
-          name="f_name"
-          id="f_name"
-          minlength="2"
-          maxlength="20"
-          pattern="[a-zA-Z]+"
-          required
-          autocomplete="off"
-        />
+    <main class="main-container">
+      <form action="">
+        <fieldset class="main-section">
+          <legend>Personal Informations</legend>
+          <label for="f_name">First Name</label>
+          <input
+            type="text"
+            name="f_name"
+            id="f_name"
+            minlength="2"
+            maxlength="20"
+            pattern="[a-zA-Z]+"
+            required
+            autocomplete="off"
+          />
 
-        <label for="l_name">Last Name</label>
-        <input
-          type="text"
-          name="l_name"
-          id="l_name"
-          minlength="2"
-          maxlength="20"
-          pattern="[a-zA-Z]+"
-          required
-          autocomplete="off"
-        />
+          <label for="l_name">Last Name</label>
+          <input
+            type="text"
+            name="l_name"
+            id="l_name"
+            minlength="2"
+            maxlength="20"
+            pattern="[a-zA-Z]+"
+            required
+            autocomplete="off"
+          />
 
-        <label for="birth">Birthday</label>
-        <input
-          type="date"
-          name="birth"
-          id="birth"
-          required
-          autocomplete="off"
-        />
-      </fieldset>
+          <label for="birth">Birthday</label>
+          <input
+            type="date"
+            name="birth"
+            id="birth"
+            required
+            autocomplete="off"
+          />
+        </fieldset>
 
-      <fieldset>
-        <legend>Contact Informations</legend>
-        <label for="country">Country</label>
-        <select name="country" id="country" required>
-          <option disabled value="">Select a country</option>
-        </select>
+        <fieldset style="display: none">
+          <legend>Contact Informations</legend>
+          <label for="country">Country</label>
+          <select name="country" id="country" required>
+            <option disabled value="">Select a country</option>
+          </select>
 
-        <label for="phone">Phone</label>
-        <input type="tel" name="phone" id="phone" required autocomplete="off" />
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            required
+            autocomplete="off"
+          />
 
-        <label for="zip_code">Zip Code</label>
-        <input
-          type="text"
-          name="zip_code"
-          id="zip_code"
-          required
-          autocomplete="off"
-        />
-      </fieldset>
+          <label for="zip_code">Zip Code</label>
+          <input
+            type="text"
+            name="zip_code"
+            id="zip_code"
+            required
+            autocomplete="off"
+          />
+        </fieldset>
 
-      <fieldset>
-        <legend>Creating an account</legend>
-        <label for="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          minlength="13"
-          maxlength="60"
-          required
-          autocomplete="off"
-        />
+        <fieldset style="display: none">
+          <legend>Creating an account</legend>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            minlength="13"
+            maxlength="60"
+            required
+            autocomplete="off"
+          />
 
-        <label for="password">Password</label>
-        <input
-          type="text"
-          name="password"
-          id="password"
-          required
-          autocomplete="off"
-        />
+          <label for="password">Password</label>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            required
+            autocomplete="off"
+          />
 
-        <label for="confirm_pw">Confirm Password</label>
-        <input
-          type="text"
-          name="confirm_pw"
-          id="confirm_pw"
-          required
-          autocomplete="off"
-        />
-      </fieldset>
+          <label for="confirm_pw">Confirm Password</label>
+          <input
+            type="text"
+            name="confirm_pw"
+            id="confirm_pw"
+            required
+            autocomplete="off"
+          />
+        </fieldset>
 
-      <button type="submit">Sign up</button>
-    </form>
+        <button style="display: none" type="submit">Sign up</button>
+      </form>
+    </main>
   </body>
   <script src="./dist/main.js"></script>
 </html>
