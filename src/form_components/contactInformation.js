@@ -92,6 +92,7 @@ function validateRegex(pattern, input) {
   const regex = new RegExp(pattern);
   if (!regex.test(input.value)) {
     input.setCustomValidity("Invalid");
+    return;
   } else {
     input.setCustomValidity("");
   }
@@ -116,14 +117,8 @@ function initInput(input) {
 
 function onlyNumbersKeydown(keycode, input) {
   let digits = [8, 3, 39, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57];
-
-  let digit;
-  digits.forEach((el) => {
-    if (keycode === el) {
-      digit = keycode;
-    }
-  });
-  if (keycode !== digit || input.shiftKey) {
+  
+  if (!digits.includes(keycode) || input.shiftKey) {
     input.preventDefault();
   }
 }
