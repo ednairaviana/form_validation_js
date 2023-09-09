@@ -4,8 +4,8 @@ function createPopUp(input, text, validity) {
   popUp.innerText = text;
   input.classList.add("_pop-on");
 
-  if(validity) {
-    popUp.classList.add("popup-ok")
+  if (validity) {
+    popUp.classList.add("popup-ok");
   }
 
   return popUp;
@@ -13,6 +13,7 @@ function createPopUp(input, text, validity) {
 
 function insertPopUp(input, text, validity) {
   const parent = input.parentElement;
+  removePopUp(input);
   parent.appendChild(createPopUp(input, text, validity));
 }
 
@@ -25,4 +26,11 @@ function removePopUp(input) {
   }
 }
 
-export { insertPopUp, removePopUp };
+function okMessage(input) {
+  insertPopUp(input, "It's ok!", true);
+  setTimeout(() => {
+    removePopUp(input);
+  }, 400);
+}
+
+export { insertPopUp, removePopUp, okMessage };
