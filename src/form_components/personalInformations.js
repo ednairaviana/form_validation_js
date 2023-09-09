@@ -3,7 +3,21 @@ const lsNameInput = document.querySelector("#l_name");
 const birthInput = document.querySelector("#birth");
 
 function setPersonalInformations() {
+  checkName(fsNameInput);
+  checkName(lsNameInput);
   checkBirth();
+}
+
+function checkName(input) {
+  input.addEventListener("input", () => {
+    const valueArray = input.value.split("");
+
+    if (valueArray.includes(" ")) {
+      input.setCustomValidity("Invalid");
+    } else {
+      input.setCustomValidity("");
+    }
+  });
 }
 
 function checkBirth() {
