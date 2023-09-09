@@ -16,6 +16,8 @@
           type="text"
           name="f_name"
           id="f_name"
+          minlength="2"
+          maxlength="20"
           required
           autocomplete="off"
         />
@@ -26,13 +28,21 @@
           type="text"
           name="l_name"
           id="l_name"
+          minlength="2"
+          maxlength="20"
           required
           autocomplete="off"
         />
         <br /><br />
 
-        <label for="age">Age</label>
-        <input type="number" name="age" id="age" required autocomplete="off" />
+        <label for="birth">Birthday</label>
+        <input
+          type="date"
+          name="birth"
+          id="birth"
+          required
+          autocomplete="off"
+        />
         <br /><br />
       </fieldset>
 
