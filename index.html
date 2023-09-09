@@ -66,7 +66,7 @@
           <button id="btn-1" type="button">Next Step</button>
         </fieldset>
 
-        <fieldset id="step-2" class="main-section">
+        <fieldset id="step-2" class="main-section" style="display: none">
           <legend>Contact Informations</legend>
 
           <div class="form-container">
@@ -106,39 +106,45 @@
           <button id="btn-2" type="button">Next Step</button>
         </fieldset>
 
-        <fieldset id="step-3" style="display: none">
+        <fieldset id="step-3" class="main-section">
           <legend>Creating an account</legend>
-          <label for="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            minlength="13"
-            maxlength="60"
-            required
-            autocomplete="off"
-          />
+          <div class="wrapper-field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              minlength="13"
+              maxlength="60"
+              required
+              autocomplete="off"
+            />
+          </div>
 
-          <label for="password">Password</label>
-          <input
-            type="text"
-            name="password"
-            id="password"
-            required
-            autocomplete="off"
-          />
+          <div class="wrapper-field">
+            <label for="password">Password</label>
+            <input
+              type="text"
+              name="password"
+              id="password"
+              required
+              autocomplete="off"
+            />
+          </div>
 
-          <label for="confirm_pw">Confirm Password</label>
-          <input
-            type="text"
-            name="confirm_pw"
-            id="confirm_pw"
-            required
-            autocomplete="off"
-          />
+          <div class="wrapper-field">
+            <label for="confirm_pw">Confirm Password</label>
+            <input
+              type="text"
+              name="confirm_pw"
+              id="confirm_pw"
+              required
+              autocomplete="off"
+            />
+          </div>
+
+          <button type="submit">Sign up</button>
         </fieldset>
-
-        <button style="display: none" type="submit">Sign up</button>
       </form>
     </main>
   </body>
