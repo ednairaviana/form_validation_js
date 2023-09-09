@@ -13,11 +13,12 @@ function setContactInformations() {
   setZipConstraint();
 }
 
-// COMPONENTS FUNCTIONS
+// SECOND FUNCTIONS
 
 let country;
 function countrySelectOnInput() {
   countrySelect.addEventListener("input", () => {
+    ableInputs();
     phoneInput.value = "";
     zipInput.value = "";
 
@@ -71,7 +72,20 @@ function initContactInformations() {
     phoneInput.placeholder = "Select a country!";
     zipInput.placeholder = "Select a country!";
 
+    disableInputs();
     insertOption();
+}
+
+// COMPONENT FUNCTIONS
+
+function disableInputs() {
+    phoneInput.disabled = true;
+    zipInput.disabled = true;
+}
+
+function ableInputs() {
+    phoneInput.disabled = false;
+    zipInput.disabled = false;
 }
 
 function validateRegex(pattern, input) {
@@ -82,6 +96,8 @@ function validateRegex(pattern, input) {
     input.setCustomValidity("");
   }
 }
+
+// 
 
 function insertOption() {
   listCountries.forEach((country) => {
