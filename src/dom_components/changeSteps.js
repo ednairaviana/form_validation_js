@@ -5,6 +5,8 @@ import {
 } from "../form_components/personalInformations";
 import { phoneInput, zipInput, countrySelect } from "../form_components/contactInformation";
 
+const form = document.querySelector("#form");
+
 const firstStep = document.querySelector("#step-1");
 const secondStep = document.querySelector("#step-2");
 const thirdStep = document.querySelector("#step-3");
