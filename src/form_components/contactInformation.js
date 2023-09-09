@@ -139,4 +139,4 @@ function onlyNumbersKeydown(keycode, input) {
   }
 }
 
-export { setContactInformations };
+export { setContactInformations, phoneInput, zipInput, countrySelect };

@@ -127,4 +127,4 @@ function checkSymbol(password) {
   return validity;
 }
 
-export { setCreatingAccount };
+export { setCreatingAccount, emailInput, pwInput, confirmPwInput };

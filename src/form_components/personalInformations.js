@@ -57,4 +57,4 @@ function checkBirth() {
   });
 }
 
-export { setPersonalInformations };
+export { setPersonalInformations, fsNameInput, lsNameInput, birthInput };
