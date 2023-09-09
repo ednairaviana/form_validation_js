@@ -49,35 +49,45 @@ function checkPassword() {
 
     if (password.includes(" ")) {
       pwInput.setCustomValidity("Invalid!");
+      insertPopUp(pwInput, "Your pw can't have spaces!");
       return;
     }
     if (password.length < 10) {
       pwInput.setCustomValidity("Invalid!");
+      insertPopUp(pwInput, "Min 10 characteres");
       return;
     }
     if (!checkAlpha(password)) {
       pwInput.setCustomValidity("Invalid!");
+      insertPopUp(pwInput, "At least one capital letter!");
       return;
     }
     if (!checkNumber(password)) {
       pwInput.setCustomValidity("Invalid!");
+      insertPopUp(pwInput, "At least one number!");
       return;
     }
     if (!checkSymbol(password)) {
-      pwInput.setCustomValidity("Invalid!");
+      insertPopUp(pwInput, "At least one symbol!");
       return;
     }
 
     pwInput.setCustomValidity("");
+    okMessage(pwInput);
   });
 }
 
 function checkConfimrPassword() {
   confirmPwInput.addEventListener("input", () => {
-    if (pwInput.value !== confirmPwInput.value) {
+    if (!pwInput.validity.valid) {
       confirmPwInput.setCustomValidity("Invalid!");
+      insertPopUp(confirmPwInput, "Your pw is invalid!");
+    } else if (pwInput.value !== confirmPwInput.value) {
+      confirmPwInput.setCustomValidity("Invalid!");
+      insertPopUp(confirmPwInput, "It's not equal to your pw");
     } else {
       confirmPwInput.setCustomValidity("");
+      okMessage(confirmPwInput);
     }
   });
 }
