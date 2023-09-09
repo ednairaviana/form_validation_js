@@ -1,3 +1,5 @@
+import { insertPopUp, removePopUp } from "../dom_components/createPopup";
+
 const fsNameInput = document.querySelector("#f_name");
 const lsNameInput = document.querySelector("#l_name");
 const birthInput = document.querySelector("#birth");
@@ -13,8 +15,11 @@ function checkName(input) {
     const valueArray = input.value.split("");
 
     if (valueArray.includes(" ")) {
+      console.log("a");
+      insertPopUp(input, "biruleibe", false);
       input.setCustomValidity("Invalid");
     } else {
+      removePopUp(input);
       input.setCustomValidity("");
     }
   });
